@@ -1,5 +1,0 @@
-1. change directory to folder with website files
-
-2. docker build -t vaporgaming-image .
-
-3. docker run --name vaporgaming-website -d -p 80:80 vaporgaming-image
