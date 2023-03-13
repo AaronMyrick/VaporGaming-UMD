@@ -1,15 +1,16 @@
-# Use the official PHP 7.2 image
-# https://hub.docker.com/_/php
-FROM php:7.2-apache
-
-# Copy local code to container image
-copy . /var/www/html/
-
-# Use port 8080 in Apache configuration files.
-RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
-
-#Configure PHP for development.
-#Switch to the production php.ini for production operations.
-# Run mv "$PHP_INI_DIR/php/ini-production" "$PHP_INI_DIR/php.ini"
-# https://hub.docker.com/_/php#configuration
-RUN mv "$PHP_INI_DIR/php/ini-development" "$PHP_INI_DIR/php.ini"
+FROM php:7.4-apache
+RUN apt-get update && apt upgrade -y
+RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable mysqli
+ADD ./app /var/www/html
+RUN echo 'SetEnv MYSQL_DB_CONNECTION ${MYSQL_DB_CONNECTION}' >> /etc/apache2/conf-enabled/environment.conf
+RUN echo 'SetEnv MYSQL_DB_NAME ${MYSQL_DB_NAME}' >> /etc/apache2/conf-enabled/environment.conf
+RUN echo 'SetEnv MYSQL_USER ${MYSQL_USER}' >> /etc/apache2/conf-enabled/environment.conf
+RUN echo 'SetEnv MYSQL_PASSWORD ${MYSQL_PASSWORD}' >> /etc/apache2/conf-enabled/environment.conf
+RUN echo 'SetEnv SITE_URL ${SITE_URL}' >> /etc/apache2/conf-enabled/environment.conf
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf &&\
+    a2enmod rewrite &&\
+    a2enmod headers &&\
+    a2enmod rewrite &&\
+    a2dissite 000-default &&\
+    service apache2 restart
+EXPOSE 80

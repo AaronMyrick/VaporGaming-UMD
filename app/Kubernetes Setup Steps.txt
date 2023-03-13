@@ -1,0 +1,36 @@
+Kubernetes Setup Steps:
+1. Clone Repo for website files:
+git clone https://github.com/AaronMyrick/VaporGaming-UMD.git
+Username: amyrick@umich.edu
+Password: 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
+2. Change Directory
+cd VaporGaming-UMD
+3. Run generic nginx docker container in the background:
+docker run -d -p 8080:80 nginx:latest
+4. Copy contents from directory to nginx container
+docker ps 
+***copy Container ID***
+docker cp . [container-id]:/usr/share/nginx/html/
+5. Commit the changes:
+docker commit [container-id] cad/web:version1
+6. Create tag for Container Registry "vaporgaming-umd" is the Project ID
+docker tag cad/web:version1 us.gcr.io/vaporgaming-umd/cad-site:version1
+7. Push
+docker push us.gcr.io/vaporgaming-umd/cad-site:version1
+8. Set gcloud project and compute zone
+gcloud config set project vaporgaming-umd
+gcloud config set compute/zone us-east5-a
+9. Create the GKE Cluster
+gcloud container clusters create gk-cluster --num-nodes=1
+gcloud container clusters get-credentials gk-cluster
+10. Deploy the website to the cluster
+kubectl create deployment web-server --image=us.gcr.io/vaporgaming-umd/cad-site:version1
+11. Expose the website
+kubectl expose deployment web-server --type LoadBalancer --port 80 --target-port 80
+
+****Current External-IP****
+34.162.201.221
+
+MySQL Instance
+ID: vaporgaming-umd
+password: UMD-8675309
