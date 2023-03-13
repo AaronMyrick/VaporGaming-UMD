@@ -27,5 +27,10 @@ gcloud container clusters get-credentials gk-cluster
 kubectl create deployment web-server --image=us.gcr.io/vaporgaming-umd/cad-site:version1
 11. Expose the website
 kubectl expose deployment web-server --type LoadBalancer --port 80 --target-port 80
-12. Show Website IP
-kubectl get service web-server
+
+****Current External-IP****
+34.162.201.221
+
+MySQL Instance
+ID: vaporgaming-umd
+password: UMD-8675309
