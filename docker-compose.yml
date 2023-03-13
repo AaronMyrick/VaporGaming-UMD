@@ -7,7 +7,7 @@ services:
     #volumes:
     #  - ./app:/var/www/html
     environment:
-      MYSQL_DB_CONNECTION: 34.162.5.185
+      MYSQL_DB_CONNECTION: 127.0.0.1
       MYSQL_DB_NAME: AccountInformation
       MYSQL_USER: aaronmyrick
       MYSQL_PASSWORD: UMD-3232733174
