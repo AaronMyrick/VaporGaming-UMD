@@ -1,14 +1,60 @@
 <?php 
-$host_name = "127.0.0.1";
-$database = "AccountInformation";
-$user_name = "root";
-$password = "";
-$GCSocket ="/cloudsql/vaporgaming-umd:us-east5:vaporgaming-umd"; 
-$GCPort='3306';
+namespace Google\Cloud\Samples\CloudSQL\MySQL;
+use PDO;
+use PDOException;
+use RuntimeException;
+use TypeError;
 
-$conn = new mysqli($host_name, $user_name,$password,$database,$GCPort,$GCSocket);
-  if ($conn->connect_errno) {
-    die("Connection error: " . $mysqli->connect_error);
+class DatabaseTcp
+{
+    public static function initTcpDatabaseConnection(): PDO
+    {
+        try {
+            // Note: Saving credentials in environment variables is convenient, but not
+            // secure - consider a more secure solution such as
+            // Cloud Secret Manager (https://cloud.google.com/secret-manager) to help
+            // keep secrets safe.
+            $username = getenv('aaronmyrick'); // e.g. 'your_db_user'
+            $password = getenv('UMD-3232733174'); // e.g. 'your_db_password'
+            $dbName = getenv('AccountInformation'); // e.g. 'your_db_name'
+            $instanceHost = getenv('127.0.0.1'); // e.g. '127.0.0.1' ('172.17.0.1' for GAE Flex)
+
+            // Connect using TCP
+            $dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $instanceHost);
+
+            // Connect to the database
+            $conn = new PDO(
+                $dsn,
+                $username,
+                $password,
+                # ...
+            );
+        } catch (TypeError $e) {
+            throw new RuntimeException(
+                sprintf(
+                    'Invalid or missing configuration! Make sure you have set ' .
+                        '$username, $password, $dbName, and $instanceHost (for TCP mode). ' .
+                        'The PHP error was %s',
+                    $e->getMessage()
+                ),
+                $e->getCode(),
+                $e
+            );
+        } catch (PDOException $e) {
+            throw new RuntimeException(
+                sprintf(
+                    'Could not connect to the Cloud SQL Database. Check that ' .
+                        'your username and password are correct, that the Cloud SQL ' .
+                        'proxy is running, and that the database exists and is ready ' .
+                        'for use. For more assistance, refer to %s. The PDO error was %s',
+                    'https://cloud.google.com/sql/docs/mysql/connect-external-app',
+                    $e->getMessage()
+                ),
+                $e->getCode(),
+                $e
+            );
+        }
+
+        return $conn;
+    }
 }
-
-    return $conn;
