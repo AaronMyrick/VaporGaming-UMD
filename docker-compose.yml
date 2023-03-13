@@ -13,7 +13,7 @@ services:
       MYSQL_PASSWORD: UMD-3232733174
       SITE_URL: http://vaporgaming
     networks:
-      - impact
+      - test
 
 networks:
   test:
