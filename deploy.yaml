@@ -16,7 +16,7 @@ spec:
       containers:
       - name: cloudsql-proxy
         image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.1.0
-        command: ["/cloudsql-proxy", "-instances=vaporgaming-umd:us-east5:vaporgaming-umd=tcp:0.0.0.0:3306","credential_file=/VaporGaming-UMD/vaporgaming-umd-043ee9946f6a.json"]
+        command: ["/cloudsql-proxy", "-instances=vaporgaming-umd:us-east5:vaporgaming-umd=tcp:0.0.0.0:3306","-credential_file=/VaporGaming-UMD/vaporgaming-umd-043ee9946f6a.json"]
         volumeMounts:
         - name: cloudsql-instance-credentials
           mountPath: /VaporGaming-UMD/cloudsql
