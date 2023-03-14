@@ -2,8 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-server
-  spec:
-    template:
-      metadata:
-      spec:
-        serviceAccountName: vaporgaming-umd
+spec:
+  selector:
+    matchLabels:
+      app: web-server
+  template:
+    metadata:
+      labels:
+        app: web-server
+    spec:
+      serviceAccountName: vaporgaming-umd
