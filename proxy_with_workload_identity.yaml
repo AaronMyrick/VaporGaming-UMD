@@ -31,7 +31,6 @@ spec:
       # [START cloud_sql_proxy_k8s_secrets]
       containers:
       - name: cloud-proxy
-        # ... other container configuration
         env:
         - name: DB_USER
           valueFrom:
