@@ -58,7 +58,7 @@ spec:
           - "--structured-logs"
 
           # Replace DB_PORT with the port the proxy should listen on
-          - "--port=3306"
+          - "--port=127.0.0.1"
           - "vaporgaming-umd:us-east5:vaporgaming-umd"
 
         securityContext:
