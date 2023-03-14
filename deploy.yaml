@@ -16,11 +16,11 @@ spec:
           command: ["/cloudsql-proxy", "-instances=vaporgaming-umd:us-east5:vaporgaming-umd=tcp:127.0.0.1:3306","credential_file=/secrets/cloudsql/vaporgaming-umd-043ee9946f6a.json"]
           volumeMounts:
             - name: cloudsql-instance-credentials
-              mountpath: /secrets/cloudsql
-              readOnly: true
+            mountpath: /secrets/cloudsql
+            readOnly: true
       volumes:
         - name: cloudsql-instance-credentials
-          secret:
-            secretName: cloudsql-instance-credentials
+        secret:
+          secretName: cloudsql-instance-credentials
         - name: cloudsql
-          emptyDir: 
+        emptyDir: 
