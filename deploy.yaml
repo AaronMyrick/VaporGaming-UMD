@@ -25,8 +25,7 @@ spec:
           - "--structured-logs"
 
           # Replace DB_PORT with the port the proxy should listen on
-          - "--port=127.0.0.1"
-          - "vaporgaming-umd:us-east5:vaporgaming-umd"
+          - "-instances=vaporgaming-umd:us-east5:vaporgaming-umd=tcp:3306"
         volumeMounts:
         - name: cloudsql-instance-credentials
           mountPath: /VaporGaming-UMD/cloudsql
