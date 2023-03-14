@@ -15,15 +15,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vaporgaming-umd
+  name: web-server
 spec:
   selector:
     matchLabels:
       app: web-server
+      resources:
+        requests:
+           cpu: "50m"
   template:
     metadata:
       labels:
         app: web-server
+        resources:
+          requests:
+             cpu: "50m"
     spec:
       serviceAccountName: vaporgaming-umd
       containers:
@@ -45,6 +51,9 @@ spec:
             secretKeyRef:
               name: dbsecret
               key: database
+          resources:
+            requests:
+               cpu: "50m"
       - name: cloud-sql-proxy
         # It is recommended to use the latest version of the Cloud SQL Auth Proxy
         # Make sure to update on a regular schedule!
