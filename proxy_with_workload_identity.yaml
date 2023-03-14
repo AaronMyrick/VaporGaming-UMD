@@ -15,19 +15,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cad-site:version1
+  name: cad-site
 spec:
   selector:
     matchLabels:
-      app: web-server
+      app: cad-site
   template:
     metadata:
       labels:
-        app: web-server
+        app: cad-site
     spec:
       serviceAccountName: vaporgaming-umd
       containers:
-      - name: web-server
+      - name: cad-site
         # ... other container configuration
         env:
         - name: DB_USER
