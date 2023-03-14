@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "vaporgaming-umd",
+  "private_key_id": "043ee9946f6a3ae2a3d79af13b37a39019ed0dc5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC3IwmSr1uGy0C9\nnCjb0IliWbCW8tYKZPB/r0MpB78MeXGZDjOXNRZxFqnpzD7SN0xNA8EictqHNqS2\n7dYBIA5f0kht1Si/bk07GLZ8S440XYZ34EHwkUVOkXKOndFyhB1WlFsGwF92o2Jj\np03uEndRBlRV0dbTI1RP/xsuBm6GQRnllLpJODyO3spZIhqiv8YgyJZSTogHscqJ\nVa2e1kHCjIka7ySiRrMIez9qcTcvqJSiluBcl6f7kYJvV1h2QOSdyDhFdmjb5hL8\nceYvj7y+k8kplld9SOanH/1lwVpKaMCRXB3weFhlkuwvRHExv4x1e9O2AKpdt/zs\nnGlxauOJAgMBAAECggEACuuDUgRnMCKe4296hDjrQdQ+3yrvSY/HqcvSjl5dRvbx\nQU+2eQKvKhXqEpXQlr2Gk2UKhCC8sdyEdjmFgQWsHCYwYwdkNmq/68Rg3tWs6HRw\nyzJLdd1dRTHcPQkuCJnWG5tQnjA99DE9cagm0aMdcdUvYpQ9LtPORQLdWDsFjIQe\nroHl4WIpQ58sJWCxqRofT91GpEDubDV0oTay8pHGFJ0nOC2FSXODCPVvEkMz7cbL\ndu+J6u0jch0x7dbWXS5oty8H231Cofwg31uwmKif6DP6nQOfFlk6GRuGMVuNp8VZ\nfMEg3p/hANwLs+tQwG+D7mGfg847OHrHSV79pWjznQKBgQD+lSEkAocB+kHn84Le\nkdWKvKXy2btreDbF7Ke3Kbx3ucphi0v2NxHAuwmcPRADuVxJlPu/gxoyf3jLxwsb\n8VKA84G24nNjVo0egEFor4IvaWVoOgTfaNHVBERHt8XSXUn59+jCBMVRl78J1L/n\ndz6CfNwDl592tNRLZmH0+ouy+wKBgQC4KBKN7MHnkT5DidivNOuesS0FgTlHfI5d\n/UWsX81SmODS+qU4kx2X1B1nFc3orV7ojo4+3KuREvn8io729aLqWqvSDETTLhc3\n8Q/NwNqj07pOlJKTemra0ln+SRnE/+h9iS1JuaB46dLMl+z00HwdYcwJ/QMuHD1Q\nOBU7JJ4cSwKBgDyAhoK/UwSGTBlqxsRMVjqFgM7JLgBpbmL1Thp6gb7WWaF68E+Q\nYNiz2qHV5TNtXuBh1r550sUDhFqxcBNw85GPzVkAUjnefOUtx92wMDlCTAZMG5JY\nn92HCQ8ePpYy83zDjP5nEdnFPXKBrCW/MgzizYrRAuW8LePJbihBTuf3AoGACjhH\nF1M9S5GW5/6dZNPGA6+HdRe/ywTRjcvBcxh594x+ZZb9Vk9rxAJEg3UFUVVVwAgx\nQrHSX6Gy993kozXsjZ7sjCKcKzASn8sj+mIqgA7+9t9t5vtTNMOZtO/vmywshdL4\nDXBcxHkNdsczoj5ztNm5jhBZfdSZXntOSlL051MCgYEAyC0D+rioGo3n2LTYm5zo\nbukBEwfLlRD6vRlQK5CZ5QepCMGHiPq1Aha54NYfxdKvf/NX6U+oWxy/55PBPdjh\nzWxb7nFRwvH4UcZp01ELSteNCj843pWFpek7ZmvOqJE9gJeaPcjAVzT6/opUehm7\nCpPpD3rxmFN6KyVaqVjdivU=\n-----END PRIVATE KEY-----\n",
+  "client_email": "cloud-rnd-service@vaporgaming-umd.iam.gserviceaccount.com",
+  "client_id": "112271018759601419564",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloud-rnd-service%40vaporgaming-umd.iam.gserviceaccount.com"
+}
