@@ -15,7 +15,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: us.gcr.io/vaporgaming-umd/cad-site:version1
+  name: cad-site:version1
 spec:
   selector:
     matchLabels:
