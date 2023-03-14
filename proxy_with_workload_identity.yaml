@@ -28,7 +28,7 @@ spec:
       serviceAccountName: vaporgaming-umd
       containers:
       - name: web-server
-        # ... other container configuration
+        image: "vaporgaming-umd:us-east5:vaporgaming-umd"
         env:
         - name: DB_USER
           valueFrom:
