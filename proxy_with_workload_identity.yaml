@@ -10,8 +10,9 @@
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
-# limitations under the License
+# limitations under the License.
 
+# [START cloud_sql_proxy_k8s_sa]
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,35 +20,36 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: web-server
+      app: cloud-proxy
   template:
     metadata:
       labels:
-        app: web-server
+        app: cloud-proxy
     spec:
       serviceAccountName: vaporgaming-umd
+      # [END cloud_sql_proxy_k8s_sa]
+      # [START cloud_sql_proxy_k8s_secrets]
       containers:
-      - name: web-server
-        image: "vaporgaming-umd:us-east5:vaporgaming-umd"
-        resources:
-          requests:
-             cpu: "50m"
+      - name: cloud-proxy
+        # ... other container configuration
         env:
         - name: DB_USER
           valueFrom:
             secretKeyRef:
-              name: dbsecret
+              name: cloudsql-db-credentials
               key: username
         - name: DB_PASS
           valueFrom:
             secretKeyRef:
-              name: dbsecret
+              name: cloudsql-db-credentials
               key: password
         - name: DB_NAME
           valueFrom:
             secretKeyRef:
-              name: dbsecret
+              name: cloudsql-db-credentials
               key: database
+      # [END cloud_sql_proxy_k8s_secrets]
+      # [START cloud_sql_proxy_k8s_container]
       - name: cloud-sql-proxy
         # It is recommended to use the latest version of the Cloud SQL Auth Proxy
         # Make sure to update on a regular schedule!
@@ -61,9 +63,9 @@ spec:
           - "--structured-logs"
 
           # Replace DB_PORT with the port the proxy should listen on
-          - "--port=127.0.0.1"
+          - "--port=3306"
           - "vaporgaming-umd:us-east5:vaporgaming-umd"
-
+        
         securityContext:
           # The default Cloud SQL Auth Proxy image runs as the
           # "nonroot" user and group (uid: 65532) by default.
@@ -83,3 +85,4 @@ spec:
             # the database and the application. Adjust this value based on your
             # application's requirements.
             cpu:    "1"
+      # [END cloud_sql_proxy_k8s_container]
