@@ -15,7 +15,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-server
+  name: web-server-876c64949
 spec:
   selector:
     matchLabels:
