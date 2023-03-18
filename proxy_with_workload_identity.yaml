@@ -27,7 +27,6 @@ spec:
     spec:
       containers:
       - name: nginx-1
-        # ... other container configuration
         - name: DB_USER
           valueFrom:
             secretKeyRef:
