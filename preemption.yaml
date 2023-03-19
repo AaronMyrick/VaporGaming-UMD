@@ -1,8 +1,0 @@
-apiVersion: apps/v1
-kind: PriorityClass
-metadata:
-  name: cloud-proxy
-value: 1000000
-preemptionPolicy: Never
-globalDefault: false
-description: "This priority class will not cause other pods to be preempted."
