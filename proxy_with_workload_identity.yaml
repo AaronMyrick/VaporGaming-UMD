@@ -15,18 +15,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-1
+  name: sidecar
 spec:
   selector:
     matchLabels:
-      app: nginx-1
+      app: sidecar
   template:
     metadata:
       labels:
-        app: nginx-1
+        app: sidecar
     spec:
       containers:
-      - name: nginx-1
+      - name: sidecar
+        env:
         - name: DB_USER
           valueFrom:
             secretKeyRef:
