@@ -28,7 +28,7 @@ spec:
       containers:
       - name: sidecar
         image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.1.0
-        - "vaporgaming-umd:us-east5:vaporgaming-umd"
+        instance_connection_name: "vaporgaming-umd:us-east5:vaporgaming-umd"
         env:
         - name: DB_USER
           valueFrom:
