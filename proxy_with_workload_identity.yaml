@@ -27,8 +27,7 @@ spec:
     spec:
       containers:
       - name: sidecar
-        image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.1.0
-        instance_connection_name: "vaporgaming-umd:us-east5:vaporgaming-umd"
+        image:
         env:
         - name: DB_USER
           valueFrom:
@@ -48,5 +47,10 @@ spec:
         - name: DB_HOST
           valueFrom:
             secretKeyRef:
-              name: vaporgaming-secret
+              name: vaporgaming-ipsecret
               key: db_host
+        - name: DB_PORT
+          valueFrom:
+            secretKeyRef:
+              name: vaporgaming-ipsecret
+              key: db_port
