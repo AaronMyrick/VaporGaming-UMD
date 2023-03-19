@@ -15,19 +15,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sidecar
+  name: vaporgaming-website
 spec:
   selector:
     matchLabels:
-      app: sidecar
+      app: vaporgaming-website
   template:
     metadata:
       labels:
-        app: sidecar
+        app: vaporgaming-website
     spec:
       containers:
-      - name: sidecar
-        image:
+      - name: vaporgaming-website
+        image: us.gcr.io/vaporgaming-umd/cad-site:version1
         env:
         - name: DB_USER
           valueFrom:
