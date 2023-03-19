@@ -49,11 +49,6 @@ spec:
             secretKeyRef:
               name: vaporgaming-ipsecret
               key: db_host
-        - name: DB_PORT
-          valueFrom:
-            secretKeyRef:
-              name: vaporgaming-ipsecret
-              key: db_port
         - name: INSTANCE_HOST
           valueFrom:
             secretKeyRef:
