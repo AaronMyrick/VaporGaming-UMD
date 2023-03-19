@@ -1,0 +1,30 @@
+Kubernetes Setup Steps:
+*To delete directory if exists:
+cd /home/amyrick
+rm -rf VaporGaming-UMD
+docker image rmi webserver --force
+1. Clone Repo for website files:
+git clone https://github.com/AaronMyrick/VaporGaming-UMD.git
+Username: amyrick@umich.edu
+Password: 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
+2. Change Directory
+cd /home/amyrick/VaporGaming-UMD
+3. Build the docker container
+docker build -t webserver .
+docker-compose up -d
+4. Commit the changes:
+docker ps  
+docker commit bbf25350baef cad/web:version1 
+5. Create tag for Container Registry "vaporgaming-umd" is the Project ID
+docker tag cad/web:version1 us.gcr.io/vaporgaming-umd/cad-site:version1
+6. Push
+docker push us.gcr.io/vaporgaming-umd/cad-site:version1
+7. Get credentials to the GKE Cluster
+gcloud container clusters get-credentials private-cluster --region=us-east5
+8. Update Secrets
+kubectl create secret generic vaporgaming-dbsecret --from-literal=username=root --from-literal=password= --from-literal=database=AccountInformation
+kubectl create secret generic vaporgaming-ipsecret --from-literal=db_host=10.11.12.8:3306
+9. Deploy the website to the cluster
+kubectl apply -f deployment.yaml
+10. Expose the website
+kubectl expose deployment vaporgaming-website --type LoadBalancer --port 80 --target-port 80
