@@ -3,17 +3,14 @@ services:
   webserver:
     image: webserver
     ports:
-      - "80:80"
+      - "8080:80"
     #volumes:
     #  - ./app:/var/www/html
     environment:
-      MYSQL_DB_CONNECTION: 127.0.0.1
+      MYSQL_DB_CONNECTION: 10.11.12.6
       MYSQL_DB_NAME: AccountInformation
       MYSQL_USER: aaronmyrick
-      MYSQL_PASSWORD: UMD-3232733174
-      SITE_URL: http://vaporgaming
-    networks:
-      - test
+      MYSQL_PASSWORD: UMD-123
 
 networks:
   test:
